@@ -69,7 +69,7 @@ In the workspace, every library and package should already be installed in your 
 [//]: # (Image References)
 
 [imagerandom]: ./images/EDA_img/Random.png "RandomImage"
-[imagecount]: ./images/EDA_img/count.jpg "countImage"
+[imagecount]: ./images/EDA_img/count.png "countImage"
 [imagefreq]: ./images/EDA_img/frequencyperset.png "freqImage"
 
 
@@ -81,9 +81,11 @@ Following are points:
   ![alt text][imagerandom]
 
 2) There are count of vehicle 3494322 & pedestrian 1044709 & Cyclist 27093
+
   ![alt text][imagecount]
   
 3) Frequency of different classes in dataset
+
  ![alt text][imagefreq]
 
 
