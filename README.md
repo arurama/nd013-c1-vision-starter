@@ -1,12 +1,13 @@
 # Object Detection in an Urban Environment
 
+## Motivation 
+
+Object dectection in a image is a important operation for self driving car. We need to train neutral network with different type of images.In this project we are going to train the model so that it can detect the cars, humans & cyclist.
 ## Data
 
 For this project, we will be using data from the [Waymo Open dataset](https://waymo.com/open/).
 
 [OPTIONAL] - The files can be downloaded directly from the website as tar files or from the [Google Cloud Bucket](https://console.cloud.google.com/storage/browser/waymo_open_dataset_v_1_2_0_individual_files/) as individual tf records. We have already provided the data required to finish this project in the workspace, so you don't need to download it separately.
-
-## Structure
 
 ### Data
 
@@ -14,8 +15,8 @@ The data you will use for training, validation and testing is organized as follo
 ```
 /home/workspace/data/waymo
     - training_and_validation - contains 97 files to train and validate your models
-    - train: contain the train data (empty to start)
-    - val: contain the val data (empty to start)
+    - train: contain the train data (60 files)
+    - val: contain the val data (37)
     - test - contains 3 files to test your model and create inference videos
 ```
 
@@ -31,9 +32,7 @@ experiments/
     - exporter_main_v2.py - to create an inference model
     - model_main_tf2.py - to launch training
     - reference/ - reference training with the unchanged config file
-    - experiment0/ - create a new folder for each experiment you run
-    - experiment1/ - create a new folder for each experiment you run
-    - experiment2/ - create a new folder for each experiment you run
+    - experiment0/ - modification with augmentation
     - label_map.pbtxt
     ...
 ```
@@ -59,17 +58,28 @@ python download_process.py --data_dir {processed_file_location} --size {number o
 
 You are downloading 100 files (unless you changed the `size` parameter) so be patient! Once the script is done, you can look inside your `data_dir` folder to see if the files have been downloaded and processed correctly.
 
-### Classroom Workspace
+### Workspace
 
-In the classroom workspace, every library and package should already be installed in your environment. You will NOT need to make use of `gcloud` to download the images.
+In the workspace, every library and package should already be installed in your environment. You will NOT need to make use of `gcloud` to download the images.
 
 ## Instructions
 
 ### Exploratory Data Analysis
 
-You should use the data already present in `/home/workspace/data/waymo` directory to explore the dataset! This is the most important task of any machine learning project. To do so, open the `Exploratory Data Analysis` notebook. In this notebook, your first task will be to implement a `display_instances` function to display images and annotations using `matplotlib`. This should be very similar to the function you created during the course. Once you are done, feel free to spend more time exploring the data and report your findings. Report anything relevant about the dataset in the writeup.
+[//]: # (Image References)
 
-Keep in mind that you should refer to this analysis to create the different spits (training, testing and validation).
+[imagerandom]: ./images/EDA_img/Random.png "RandomImage"
+
+
+You should use the data already present in `/home/workspace/data/waymo` directory to explore the dataset! 
+Here are the some highlights of the exploratory data analysis & deatils analysis is done in Exploratory Data Analysis notebook.
+Following are points:
+1) Random images 
+
+  ![alt text][imagerandom]
+
+
+
 
 
 ### Create the training - validation splits
@@ -79,7 +89,7 @@ In the class, we talked about cross-validation and the importance of creating me
 
 Use the following command to run the script once your function is implemented:
 ```
-python create_splits.py --data-dir /home/workspace/data
+python create_splits.py --source  /home/workspace/data/waymo/training_and_validation --destination /home/workspace/data/waymo
 ```
 
 ### Edit the config file
