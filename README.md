@@ -132,12 +132,81 @@ To monitor the training, you can launch a tensorboard instance by running `pytho
 
 ### Improve the performances
 
-Most likely, this initial experiment did not yield optimal results. However, you can make multiple changes to the config file to improve this model. One obvious change consists in improving the data augmentation strategy. The [`preprocessor.proto`](https://github.com/tensorflow/models/blob/master/research/object_detection/protos/preprocessor.proto) file contains the different data augmentation method available in the Tf Object Detection API. To help you visualize these augmentations, we are providing a notebook: `Explore augmentations.ipynb`. Using this notebook, try different data augmentation combinations and select the one you think is optimal for our dataset. Justify your choices in the writeup.
-
-Keep in mind that the following are also available:
-* experiment with the optimizer: type of optimizer, learning rate, scheduler etc
-* experiment with the architecture. The Tf Object Detection API [model zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf2_detection_zoo.md) offers many architectures. Keep in mind that the `pipeline.config` file is unique for each architecture and you will have to edit it.
-
+With the change in the augumentation let see the improvement in model
+following are the changes i made in config files.
+```
+random_horizontal_flip {
+      keypoint_flip_permutation: 1
+      keypoint_flip_permutation: 0
+      keypoint_flip_permutation: 2
+      keypoint_flip_permutation: 3
+      keypoint_flip_permutation: 5
+      keypoint_flip_permutation: 4
+      probability: 0.5
+    }
+  }
+  data_augmentation_options {
+    random_vertical_flip {
+      keypoint_flip_permutation: 1
+      keypoint_flip_permutation: 0
+      keypoint_flip_permutation: 2
+      keypoint_flip_permutation: 3
+      keypoint_flip_permutation: 5
+      keypoint_flip_permutation: 4
+      probability: 0.5
+    }
+  }
+  data_augmentation_options {
+    random_crop_image {
+      min_object_covered: 0.0
+      min_aspect_ratio: 0.75
+      max_aspect_ratio: 3.0
+      min_area: 0.75
+      max_area: 1.0
+      overlap_thresh: 0.0
+    }
+  }
+  data_augmentation_options {
+    random_jpeg_quality {
+      random_coef: 0.6
+      min_jpeg_quality: 50
+      max_jpeg_quality: 95
+    }
+}
+ data_augmentation_options {
+    random_distort_color {
+      color_ordering: 1
+    }
+}
+data_augmentation_options {
+    random_adjust_saturation {
+      min_delta: 0.75
+      max_delta: 1.15
+    }
+}
+data_augmentation_options {
+    random_adjust_contrast {
+      min_delta: 0.7
+      max_delta: 1.1
+    }
+}
+data_augmentation_options {
+    random_adjust_brightness {
+      max_delta: 0.2
+    }
+}
+data_augmentation_options {
+    random_rgb_to_gray {
+      probability: 0.8
+    }
+}
+data_augmentation_options {
+    random_pixel_value_scale {
+      minval: 0.7
+      maxval: 1.1
+    }
+}
+```
 **Important:** If you are working on the workspace, your storage is limited. You may to delete the checkpoints files after each experiment. You should however keep the `tf.events` files located in the `train` and `eval` folder of your experiments. You can also keep the `saved_model` folder to create your videos.
 
 
