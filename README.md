@@ -71,6 +71,7 @@ In the workspace, every library and package should already be installed in your 
 [imagerandom]: ./images/EDA_img/Random.png "RandomImage"
 [imagecount]: ./images/EDA_img/count.png "countImage"
 [imagefreq]: ./images/EDA_img/frequencyperset.png "freqImage"
+[imageloss]: ./images/Tensor_img/Loss_improve.png "tensorImage"
 
 
 You should use the data already present in `/home/workspace/data/waymo` directory to explore the dataset! 
@@ -208,6 +209,9 @@ data_augmentation_options {
     }
 }
 ```
+After arumentation changes, we can see the improvement in the model training. There is less noise & overall loss is less.
+
+![alt text][imageloss]
 **Important:** If you are working on the workspace, your storage is limited. You may to delete the checkpoints files after each experiment. You should however keep the `tf.events` files located in the `train` and `eval` folder of your experiments. You can also keep the `saved_model` folder to create your videos.
 
 
