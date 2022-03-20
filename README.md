@@ -220,6 +220,7 @@ data_augmentation_options {
 }
 ```
 some examples of augmentation:
+
 Orignal image :
 
 ![alt text][imageAugOri]
@@ -231,10 +232,6 @@ Coverting to gray
 Change of Brightness
 
 ![alt text][imageAugBri]
-
-Change of Brightness
-
-![alt text][imageAugOri]
 
 Change of Contrast
 
