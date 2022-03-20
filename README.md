@@ -221,18 +221,31 @@ data_augmentation_options {
 ```
 some examples of augmentation:
 Orignal image :
- ![alt text][imageAugOri]
-Coverting to gray 
-![alt text][imageAugGray]
-Change of Brightness
-![alt text][imageAugBri]
-Change of Brightness
+
 ![alt text][imageAugOri]
+
+Coverting to gray 
+
+![alt text][imageAugGray]
+
+Change of Brightness
+
+![alt text][imageAugBri]
+
+Change of Brightness
+
+![alt text][imageAugOri]
+
 Change of Contrast
+
 ![alt text][imageAugCon]
+
 Horizontal flip of image
+
 ![alt text][imageAugFlipHor] 
+
 Vertical flip of image
+
 ![alt text][imageAugFlipVer]
 
 After arumentation changes, we can see the improvement in the model training. There is less noise & overall loss is less.
