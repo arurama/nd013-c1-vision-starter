@@ -21,23 +21,19 @@ def split(source, destination):
         - destination [str]: destination data directory, contains 3 sub folders: train / val / test
     """
     # TODO: Implement function
-    files= glob.glob(source + '\\*.tfrecord')
-
-    File_train, File_val_test = train_test_split( files, train_size=0.6, random_state=45)
-    File_val, File_test = train_test_split( File_val_test, train_size=0.5, random_state=45)
+    files= glob.glob(source + '/*.tfrecord')
+    print(source)
+    File_train, File_val = train_test_split( files, train_size=0.6, random_state=45)
+    
 
 
     TrainFolder = os.path.join(destination, 'train')
-    TestFolder = os.path.join(destination, 'test')
     ValFolder = os.path.join(destination, 'val')
 
     # make dir 
     if not os.path.exists(TrainFolder):
         os.makedirs(TrainFolder)
         
-    if not os.path.exists(TestFolder):
-        os.makedirs(TestFolder)
-
     if not os.path.exists(ValFolder):
         os.makedirs(ValFolder)
         
@@ -48,8 +44,6 @@ def split(source, destination):
     for File in File_val :
         shutil.move(File, ValFolder )
         
-    for File in File_test :
-        shutil.move(File, TestFolder)
     
 
 if __name__ == "__main__":
