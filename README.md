@@ -135,6 +135,7 @@ To monitor the training, you can launch a tensorboard instance by running `pytho
 With the change in the augumentation let see the improvement in model
 following are the changes i made in config files.
 ```
+data_augmentation_options {
 random_horizontal_flip {
       keypoint_flip_permutation: 1
       keypoint_flip_permutation: 0
