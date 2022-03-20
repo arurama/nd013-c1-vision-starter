@@ -73,6 +73,13 @@ In the workspace, every library and package should already be installed in your 
 [imagefreq]: ./images/EDA_img/frequencyperset.png "freqImage"
 [imageloss]: ./images/Tensor_img/Loss_improve.png "tensorImage"
 
+[imageAugOri]: ./images/Aug_img/ori.png "AugImage"
+[imageAugBri]: ./images/Aug_img/brightness_change.png "AugBriImage"
+[imageAugCon]: ./images/Aug_img/contras_change.png "AugConImage"
+[imageAugFlipHor]: ./images/Aug_img/flip_hor.png "AugFlHorImage"
+[imageAugFlipVer]: ./images/Aug_img/flip_ver.png "AugFlverImage"
+[imageAugGray]: ./images/Aug_img/gray_img.png "AugGrayImage"
+
 
 You should use the data already present in `/home/workspace/data/waymo` directory to explore the dataset! 
 Here are the some highlights of the exploratory data analysis & deatils analysis is done in Exploratory Data Analysis notebook.
@@ -134,7 +141,10 @@ To monitor the training, you can launch a tensorboard instance by running `pytho
 ### Improve the performances
 
 With the change in the augumentation let see the improvement in model
-following are the changes i made in config files.
+following are the changes made in config files.
+a) random_horizontal_flip b) random_vertical_flip c) random_crop_image
+d)random_jpeg_quality e) random_distort_color f) random_adjust_saturation
+g) random_adjust_contrast h) random_adjust_brightness i) random_pixel_value_scale
 ```
 data_augmentation_options {
 random_horizontal_flip {
@@ -209,6 +219,22 @@ data_augmentation_options {
     }
 }
 ```
+some examples of augmentation:
+Orignal image :
+ ![alt text][imageAugOri]
+Coverting to gray 
+![alt text][imageAugGray]
+Change of Brightness
+![alt text][imageAugBri]
+Change of Brightness
+![alt text][imageAugOri]
+Change of Contrast
+![alt text][imageAugCon]
+Horizontal flip of image
+![alt text][imageAugFlipHor] 
+Vertical flip of image
+![alt text][imageAugFlipVer]
+
 After arumentation changes, we can see the improvement in the model training. There is less noise & overall loss is less.
 
 ![alt text][imageloss]
