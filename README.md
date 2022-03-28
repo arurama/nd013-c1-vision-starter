@@ -112,6 +112,7 @@ Use the following command to run the script once your function is implemented:
 ```
 python create_splits.py --source  /home/workspace/data/waymo/training_and_validation --destination /home/workspace/data/waymo
 ```
+Here dataset is splitted with ratio of 60:30:10 - training:validation:testing split
 
 ### Edit the config file
 
@@ -148,9 +149,11 @@ To monitor the training, you can launch a tensorboard instance by running `pytho
 
 For this experiment below model is used :
 (ssc_resnet50)
+
 http://download.tensorflow.org/models/object_detection/tf2/20200711/ssd_resnet50_v1_fpn_640x640_coco17_tpu-8.tar.gz
 
 After training & validate following total loss plot :
+
  ![alt text][imageTrainVal]
 
 There is lots of noisel total loss signal  training is avg 3.5 & Validation 3.87
