@@ -84,6 +84,7 @@ In the workspace, every library and package should already be installed in your 
 [imageAugFlipVer]: ./images/Aug_img/flip_ver.png "AugFlverImage"
 [imageAugGray]: ./images/Aug_img/gray_img.png "AugGrayImage"
 
+[imageTrainVal]: ./images/Tensor_img/train_val.png "trainImage"
 
 You should use the data already present in `/home/workspace/data/waymo` directory to explore the dataset! 
 Here are the some highlights of the exploratory data analysis & deatils analysis is done in Exploratory Data Analysis notebook.
@@ -141,6 +142,18 @@ python experiments/model_main_tf2.py --model_dir=experiments/reference/ --pipeli
 `CTRL+C`.
 
 To monitor the training, you can launch a tensorboard instance by running `python -m tensorboard.main --logdir experiments/reference/`. You will report your findings in the writeup.
+
+
+####  Reference experiment
+
+For this experiment below model is used :
+(ssc_resnet50)
+http://download.tensorflow.org/models/object_detection/tf2/20200711/ssd_resnet50_v1_fpn_640x640_coco17_tpu-8.tar.gz
+
+After training & validate following total loss plot :
+ ![alt text][imageTrainVal]
+
+There is lots of noisel total loss signal  training is avg 3.5 & Validation 3.87
 
 ### Improve the performances
 
