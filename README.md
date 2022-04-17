@@ -156,7 +156,7 @@ After training & validate following total loss plot :
 
  ![alt text][imageTrainVal]
 
-There is lots of noisel total loss signal  training is avg 3.5 & Validation 3.87
+
 
 ### Improve the performances
 
